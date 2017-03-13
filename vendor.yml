@@ -1,0 +1,7 @@
+vendors:
+- path: github.com/PuerkitoBio/goquery
+  rev: c641b87978a16588afa9ab1a02e02c8b8e05b314
+- path: github.com/andybalholm/cascadia
+  rev: 349dd0209470eabd9514242c688c403c0926d266
+- path: golang.org/x/net
+  rev: a6577fac2d73be281a500b310739095313165611
