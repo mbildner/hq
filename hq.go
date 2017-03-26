@@ -3,11 +3,12 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"github.com/PuerkitoBio/goquery"
 	"io/ioutil"
 	"os"
 	"regexp"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 func main() {
@@ -32,6 +33,14 @@ func main() {
 			if exists {
 				fmt.Println(attributeValue)
 			}
+		})
+
+	} else if strings.HasPrefix(query, "text") {
+		doc, _ := goquery.NewDocumentFromReader(bytes.NewBuffer(htmlBytes))
+		q := doc.Find("body > *")
+
+		q.Each(func(_ int, s *goquery.Selection) {
+			fmt.Println(s.Text())
 		})
 
 	} else {
